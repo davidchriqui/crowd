@@ -12,8 +12,8 @@ Appdj::Application.routes.draw do
       # We are going to list our resources here
       resources :users, :only => [:show, :create, :update, :destroy, :index] do
         resources :products, :only => [:create, :update, :destroy]
-        resources :sessions, :only => [:create, :destroy]
       end
+      resources :sessions, :only => [:create, :destroy]
       resources :playlists, :only => [:create, :show, :index, :destroy]
       resources :user_playlists, :only => [:create, :destroy]
       resources :songs, :only => [:create, :index, :update]
