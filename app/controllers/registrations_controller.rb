@@ -4,7 +4,6 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     user = User.new(user_params)
     if User.find_by(:email => user.email)
-      binding.pry
       render json: User.find_by(:email => user.email), status: 200, location: [:api, user]
     else
       if user.save
