@@ -1,4 +1,4 @@
-class Api::V1::SongsController < ApplicationController
+class SongsController < ApplicationController
 
   respond_to :json
 

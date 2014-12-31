@@ -1,4 +1,4 @@
-class Api::V1::UserPlaylistsController < ApplicationController
+class UserPlaylistsController < ApplicationController
   respond_to :json
 
   before_action :authenticate_with_token!, only: [:create, :destroy]
