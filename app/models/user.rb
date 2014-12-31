@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
 
   before_create :generate_authentication_token!
+  before_create :defaut_password!
 
   has_many :products, dependent: :destroy
   has_many :songs, dependent: :destroy
@@ -16,9 +17,13 @@ class User < ActiveRecord::Base
 
   def generate_authentication_token!
     begin
-      self.auth_token = Devise.friendly_token
+      self.auth_token = self.email
     end while self.class.exists?(auth_token: auth_token)
   end
 
+  def defaut_password!
+    self.password = "defaut"
+    self.password_confirmation = "defaut"
+  end
 
 end
